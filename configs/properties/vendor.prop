@@ -276,6 +276,9 @@ debug.sf.enable_adpf_cpu_hint=true
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
 
+# Netflix
+ro.netflix.bsp_rev=Q4450-37037-1
+
 # Misc
 sys.vendor.shutdown.waittime=500
 
