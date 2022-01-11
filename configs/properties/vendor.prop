@@ -254,6 +254,7 @@ persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # USB
 persist.sys.usb.config=none
+persist.vendor.usb.config=mtp,adb
 vendor.usb.diag.func.name=ffs
 vendor.usb.dpl.inst.name=dpl
 vendor.usb.qdss.inst.name=qdss_sw
