@@ -196,6 +196,7 @@ ro.surface_flinger.clear_slots_with_set_layer_buffer=true
 ro.vendor.all_modes.colorpick_adjust=true
 ro.config.avoid_gfx_accel=true
 vendor.gralloc.disable_ubwc=0
+debug.sdm.support_writeback=0
 
 # HWUI
 debug.hwui.use_hint_manager=true
