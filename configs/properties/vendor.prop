@@ -212,6 +212,9 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 persist.vendor.dpm.vndr.halservice.enable=1
 persist.vendor.dpm.vndr.feature=1
 
+# Disable vsync for cpu rendered apps
+debug.cpurend.vsync=false
+
 # DRM
 drm.service.enabled=true
 
