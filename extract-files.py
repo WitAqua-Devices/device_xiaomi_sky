@@ -24,7 +24,6 @@ from extract_utils.main import (
 namespace_imports = [
     'device/xiaomi/sky',
     'hardware/qcom-caf/sm8450',
-    'hardware/qcom-caf/sm8450/audio/agm/ipc/HwBinders/legacy',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
     'vendor/qcom/opensource/commonsys/display',
@@ -53,13 +52,13 @@ lib_fixups: lib_fixups_user_type = {
     ): lib_fixup_vendor_suffix,
     (
         'libagm',
-        'libagmclient',
-        'libagmmixer',
+        'libar-acdb',
         'libar-pal',
+        'libats',
+        'liblx-osal',
         'libpalclient',
         'libsndcardparser',
         'libwpa_client',
-        'vendor.qti.hardware.pal@1.0-impl',
     ): lib_fixup_remove,
 }
 
