@@ -68,3 +68,6 @@ persist.vendor.ssr.enable_ramdumps=0
 # WiFi display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
+
+# Increase max cached processes
+activity_manager.max_cached_processes=64
