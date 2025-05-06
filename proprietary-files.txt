@@ -855,9 +855,6 @@ system_ext/framework/vendor.qti.ims.rcssipaidlservice-V1-java.jar
 system_ext/framework/vendor.qti.ims.rcsuceaidlservice-V1-java.jar
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 
-# IR
-vendor/lib64/hw/consumerir.default.so
-
 # IRQ balance
 vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf
