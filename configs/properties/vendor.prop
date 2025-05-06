@@ -288,6 +288,9 @@ ro.vendor.perf.scroll_opt.heavy_app=2
 vendor.power.pasr.enabled=false
 vendor.pasr.activemode.enabled=false
 
+# Phantom process monitoring
+sys.fflag.override.settings_enable_monitor_phantom_procs=false
+
 # QFP
 persist.vendor.qfp=true
 
