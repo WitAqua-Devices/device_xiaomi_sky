@@ -280,4 +280,9 @@
          empty string is passed in -->
     <string name="config_wlan_network_service_package">vendor.qti.iwlan</string>
 
+
+    <!-- SQLite -->
+    <string name="db_default_journal_mode" translatable="false">MEMORY</string>
+    <string name="db_default_sync_mode" translatable="false">OFF</string>
+    <string name="db_wal_sync_mode" translatable="false">OFF</string>
 </resources>
