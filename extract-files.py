@@ -70,19 +70,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(
 	    'NXP_T4T_NFCEE_ENABLE=0x01', 'NXP_T4T_NFCEE_ENABLE=0x00'
 	),
-    'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
-        .add_needed('libgui_shim.so'),
-    'system_ext/lib64/libwfdnative.so': blob_fixup()
-        .add_needed('libinput_shim.so'),
-    'system_ext/lib64/libwfdservice.so': blob_fixup()
-        .replace_needed(
-            'android.media.audio.common.types-V2-cpp.so',
-            'android.media.audio.common.types-V3-cpp.so',
-        )
-        .replace_needed(
-            'android.hardware.common-V2-ndk_platform.so',
-            'android.hardware.common-V2-ndk.so',
-        ),
     (
         'vendor/bin/hw/android.hardware.security.keymint-service-qti',
         'vendor/lib64/libqtikeymint.so',
