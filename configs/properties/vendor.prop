@@ -284,6 +284,9 @@ debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
 debug.sf.enable_adpf_cpu_hint=true
 
+# Launcher
+ro.launcher.blur.appLaunch=0
+
 # Media
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
