@@ -50,11 +50,6 @@ BOARD_SUPPORTS_OPENSOURCE_STHAL := true
 
 TARGET_USES_QCOM_MM_AUDIO := true
 
-# Boot control
-SOONG_CONFIG_NAMESPACES += ufsbsg
-SOONG_CONFIG_ufsbsg += ufsframework
-SOONG_CONFIG_ufsbsg_ufsframework := bsg
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sky
 TARGET_NO_BOOTLOADER := true
