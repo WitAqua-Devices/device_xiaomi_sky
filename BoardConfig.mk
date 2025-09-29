@@ -185,7 +185,7 @@ TARGET_BOARD_PLATFORM := parrot
 BOARD_USES_QCOM_HARDWARE := true
 
 # Power
-TARGET_POWER_LIBPERFMGR_MODE_EXTENSION_LIB := //$(DEVICE_PATH):libperfmgr-ext-sky
+$(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(DEVICE_PATH):libperfmgr-ext-sky)
 
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/configs/properties/odm.prop
