@@ -96,3 +96,11 @@ on property:ro.boot.boardid=S88029EA1
 
 on property:ro.boot.boardid=S88018PA1
         start vendor.nfc_hal_service
+
+# Enable WLAN SSR recovery
+on property:persist.vendor.ssr.restart_level=ALL_ENABLE
+    write /sys/kernel/cnss/recovery 1
+
+# Disable WLAN SSR recovery
+on property:persist.vendor.ssr.restart_level=ALL_DISABLE
+    write /sys/kernel/cnss/recovery 0	
