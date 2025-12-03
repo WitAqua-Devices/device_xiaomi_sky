@@ -172,6 +172,7 @@ debug.sf.enable_gl_backpressure=0
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_transaction_tracing=false
 debug.sf.frame_rate_multiple_threshold=90
+debug.sf.enable_egl_image_tracker=0
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
 ro.hardware.vulkan=adreno
