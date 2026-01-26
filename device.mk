@@ -378,7 +378,7 @@ PRODUCT_PACKAGES += \
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
-    CarrierConfig \
+    CarrierConfigRes \
     FrameworksResCommon \
     FrameworksResTarget \
     SettingsResCommon \
