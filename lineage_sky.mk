@@ -29,6 +29,9 @@ AXION_CAMERA_FRONT_INFO := 8
 AXION_MAINTAINER := Arrowsploit
 AXION_PROCESSOR := Snapdragon_4_Gen_2
 
+# safely disable libperfmgr without breaking boot
+TARGET_DISABLES_LIBPERF := true
+
 ## Device identifier
 PRODUCT_DEVICE := sky
 PRODUCT_NAME := lineage_sky
