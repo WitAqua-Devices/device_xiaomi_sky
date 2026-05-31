@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<boosts>
+
+    <boost-resource id="0x01fd" name="launch_boost">
+        <set resource="cpu_min_big" id="0x0005" value="2131200" />
+        <set resource="cpu_min_little" id="0x0004" value="1804800" />
+        <set resource="uclamp_fg_min" id="0x0012" value="70" />
+        <set resource="uclamp_top_min" id="0x0014" value="100" />
+        <set resource="uclamp_top_lat" id="0x0013" value="1" />
+        <set resource="pmqos_cpu_dma_latency" id="0x0011" value="44" />
+    </boost-resource>
+
+    <boost-resource id="0x01fb" name="scroll_boost">
+        <set resource="cpu_min_big" id="0x0005" value="1497600" />
+        <set resource="cpu_min_little" id="0x0004" value="1286400" />
+        <set resource="uclamp_fg_min" id="0x0012" value="30" />
+        <set resource="uclamp_top_min" id="0x0014" value="40" />
+        <set resource="uclamp_top_lat" id="0x0013" value="1" />
+    </boost-resource>
+
+    <boost opcode="1" timeout_ms="2500" name="first_launch">
+        <set resource="launch_boost" id="0x01fd" />
+    </boost>
+
+    <boost opcode="2" timeout_ms="1200" name="warm_launch">
+        <set resource="launch_boost" id="0x01fd" />
+    </boost>
+
+    <boost opcode="5" timeout_ms="500" name="activity_transition">
+        <set resource="launch_boost" id="0x01fd" />
+    </boost>
+
+    <boost opcode="10" timeout_ms="500" name="act_switch">
+        <set resource="launch_boost" id="0x01fd" />
+    </boost>
+
+    <boost opcode="11" timeout_ms="500" name="fling">
+        <set resource="scroll_boost" id="0x01fb" />
+    </boost>
+
+    <boost opcode="12" timeout_ms="250" name="scroll_input">
+        <set resource="uclamp_fg_min" id="0x0012" value="25" />
+        <set resource="uclamp_top_min" id="0x0014" value="30" />
+    </boost>
+
+    <boost opcode="14" timeout_ms="250" name="scroll_vertical">
+        <set resource="scroll_boost" id="0x01fb" />
+    </boost>
+
+    <boost opcode="15" timeout_ms="250" name="scroll_scroller">
+        <set resource="scroll_boost" id="0x01fb" />
+    </boost>
+
+    <boost opcode="19" timeout_ms="120" name="touch_boost">
+        <set resource="uclamp_fg_min" id="0x0012" value="30" />
+        <set resource="uclamp_top_min" id="0x0014" value="40" />
+    </boost>
+
+    <boost opcode="34" timeout_ms="350" name="frame_rescue_heavy">
+        <set resource="cpu_min_big" id="0x0005" value="2054400" />
+        <set resource="cpu_min_little" id="0x0004" value="1632000" />
+        <set resource="uclamp_fg_min" id="0x0012" value="80" />
+        <set resource="uclamp_top_min" id="0x0014" value="80" />
+    </boost>
+
+    <boost opcode="37" timeout_ms="700" name="transition">
+        <set resource="launch_boost" id="0x01fd" />
+    </boost>
+
+    <boost opcode="38" timeout_ms="1200" name="animation_boost">
+        <set resource="launch_boost" id="0x01fd" />
+    </boost>
+
+    <boost opcode="44" timeout_ms="200" name="ime_show_hide">
+        <set resource="cpu_min_big" id="0x0005" value="1497600" />
+        <set resource="uclamp_top_min" id="0x0014" value="40" />
+    </boost>
+
+</boosts> 

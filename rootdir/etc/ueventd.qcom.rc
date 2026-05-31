@@ -508,3 +508,12 @@ subsystem mem_buf_vm
 # Battery
 /sys/class/qcom-battery                                 input_suspend                   0660    system  system
 
+
+# PMQoS cpu_dma_latency for AxBurstEngine
+/dev/cpu_dma_latency                                    0664 system system
+
+/sys/class/kgsl/kgsl-3d0/devfreq/min_freq              0664 system system
+/sys/class/kgsl/kgsl-3d0/devfreq/max_freq              0664 system system
+
+/sys/class/kgsl/kgsl-3d0/force_clk_on                  0664 system system
+/sys/class/kgsl/kgsl-3d0/force_rail_on                 0664 system system

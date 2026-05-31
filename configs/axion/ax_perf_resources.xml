@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- CPU -->
+
+    <resource id="0x0002"
+        name="cpu_max_little"
+        path="/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq"
+        default="1958400" />
+
+    <resource id="0x0003"
+        name="cpu_max_big"
+        path="/sys/devices/system/cpu/cpufreq/policy6/scaling_max_freq"
+        default="2208000" />
+
+    <resource id="0x0004"
+        name="cpu_min_little"
+        path="/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq"
+        default="0" />
+
+    <resource id="0x0005"
+        name="cpu_min_big"
+        path="/sys/devices/system/cpu/cpufreq/policy6/scaling_min_freq"
+        default="0" />
+
+    <!-- PMQOS -->
+
+    <resource id="0x0011"
+        name="pmqos_cpu_dma_latency"
+        path="/dev/cpu_dma_latency"
+        default="100" />
+
+    <!-- UCLAMP -->
+
+    <resource id="0x0012"
+        name="uclamp_fg_min"
+        path="/dev/cpuctl/foreground/cpu.uclamp.min"
+        default="0" />
+
+    <resource id="0x0013"
+        name="uclamp_top_lat"
+        path="/dev/cpuctl/top-app/cpu.uclamp.latency_sensitive"
+        default="0" />
+
+    <resource id="0x0014"
+        name="uclamp_top_min"
+        path="/dev/cpuctl/top-app/cpu.uclamp.min"
+        default="26" />
+
+    <!-- GPU -->
+
+    <resource id="0x000f"
+        name="gpu_max_freq"
+        path="/sys/class/kgsl/kgsl-3d0/devfreq/max_freq"
+        default="955000000" />
+
+    <resource id="0x0010"
+        name="gpu_min_freq"
+        path="/sys/class/kgsl/kgsl-3d0/devfreq/min_freq"
+        default="340000000" />
+
+    <resource id="0x0007"
+        name="gpu_force_rail"
+        path="/sys/class/kgsl/kgsl-3d0/force_rail_on"
+        default="0" />
+
+    <resource id="0x0008"
+        name="gpu_force_clk"
+        path="/sys/class/kgsl/kgsl-3d0/force_clk_on"
+        default="0" />
+
+    <!-- CPUSETS -->
+
+    <resource id="0x0099"
+        name="cpuset_bg"
+        path="/dev/cpuset/background/cpus"
+        default="0-2" />
+
+    <resource id="0x009a"
+        name="cpuset_fg"
+        path="/dev/cpuset/foreground/cpus"
+        default="0-7" />
+
+</resources>
