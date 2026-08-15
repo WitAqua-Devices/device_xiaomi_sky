@@ -96,33 +96,3 @@ on property:ro.boot.boardid=S88029EA1
 
 on property:ro.boot.boardid=S88018PA1
         start vendor.nfc_hal_service
-
-on boot
-
-# AxBurstEngine
-    chown system system /dev/cpu_dma_latency
-    chmod 0664 /dev/cpu_dma_latency
-
-    chown system system /dev/cpuctl/top-app/cpu.uclamp.min
-    chmod 0664 /dev/cpuctl/top-app/cpu.uclamp.min
-
-    chown system system /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive
-    chmod 0664 /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive
-
-    chown system system /dev/cpuctl/foreground/cpu.uclamp.min
-    chmod 0664 /dev/cpuctl/foreground/cpu.uclamp.min
-
-    chown system system /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive
-    chmod 0664 /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive
-
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
-    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
-
-    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
-    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
-
-    chown system system /sys/class/kgsl/kgsl-3d0/force_clk_on
-    chmod 0664 /sys/class/kgsl/kgsl-3d0/force_clk_on
-
-    chown system system /sys/class/kgsl/kgsl-3d0/force_rail_on
-    chmod 0664 /sys/class/kgsl/kgsl-3d0/force_rail_on
