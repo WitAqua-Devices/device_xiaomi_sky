@@ -34,7 +34,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>qccsyshal</instance>
         </interface>
     </hal>
-    <hal format="hidl">Add commentMore actions
+    <hal format="hidl">
         <name>android.hardware.media.c2</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IComponentStore/default1</fqname>
