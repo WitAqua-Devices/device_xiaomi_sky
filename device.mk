@@ -391,6 +391,14 @@ PRODUCT_PACKAGES += \
     ueventd-odm.rc \
     init.recovery.qcom.rc
 
+# Recovery
+# Both touch controllers get their firmware pushed from /vendor/firmware
+# on every resume, and recovery never mounts /vendor.
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/sky/proprietary/vendor/firmware/focaltech_8725_fw.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/focaltech_8725_fw.bin \
+    vendor/xiaomi/sky/proprietary/vendor/firmware/focaltech_ts_fw_.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/focaltech_ts_fw_.bin \
+    vendor/xiaomi/sky/proprietary/vendor/firmware/novatek_ts_fw.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/novatek_ts_fw.bin
+
 # RRO Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigRes \
