@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!--
+        com.google.android.euicc refuses to start without a mapping for
+        ro.product.device. Stock ships it in Telecom's partner receiver; the
+        hcesim1ese boards report river (S88029JA1) or XIG03 (S88029EA1).
+        Slot 1 is the eUICC, as in non_removable_euicc_slots.
+    -->
+    <string name="sim_slot_mappings_json" translatable="false">{\"sim-slot-mappings\":[{\"devices\":[\"river\",\"XIG03\"],\"esim-slot-ids\":[1],\"psim-slot-ids\":[0]}]}</string>
+</resources>

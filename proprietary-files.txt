@@ -679,6 +679,10 @@ vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
 vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
+# eSIM - from XIG03 OS2.0.11.0.VMWJPKD
+product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED|958e4203b729fb9130737d8352ddcc1ad750f6ca
+system_ext/framework/mirilhook.jar|1eef4d279b1180ae5ea4095a20ebd18891a9dae5
+
 # ESE powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
 vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc

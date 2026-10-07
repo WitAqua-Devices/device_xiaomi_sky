@@ -169,6 +169,21 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
     android.hardware.drm-service.clearkey
 
+# eSIM
+# The overlays only apply to the hcesim1ese boards, so the switcher and
+# the LPA stay inert elsewhere. EuiccPolicy turns com.google.android.euicc
+# off when FEATURE_TELEPHONY_EUICC is missing and hands it the slot layout
+# through the partner customization broadcast.
+PRODUCT_PACKAGES += \
+    EuiccPolicy \
+    EuiccPolicyResEsim \
+    FrameworksResEsim \
+    XiaomiEsimSwitcher
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/privapp-permissions-euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-euicc.xml \
+    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_hcesim1ese/android.hardware.telephony.euicc.xml
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd

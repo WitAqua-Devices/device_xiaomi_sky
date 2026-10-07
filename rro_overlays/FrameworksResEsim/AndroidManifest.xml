@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.overlay.esim">
+
+    <!-- Only the Japanese boards (SKU hcesim1ese) carry an eUICC. -->
+    <overlay
+        android:isStatic="true"
+        android:priority="851"
+        android:requiredSystemPropertyName="ro.boot.product.hardware.sku"
+        android:requiredSystemPropertyValue="hcesim1ese"
+        android:targetPackage="android" />
+</manifest>
