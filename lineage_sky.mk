@@ -22,16 +22,6 @@ $(call inherit-product, $(DEVICE_PATH)/device.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sky/sky-vendor.mk)
 
-# Axion Flags
-TARGET_INCLUDE_AXFX := true
-AXION_CAMERA_REAR_INFO := 50,2
-AXION_CAMERA_FRONT_INFO := 8
-AXION_MAINTAINER := Arrowsploit
-AXION_PROCESSOR := Snapdragon_4_Gen_2
-
-# safely disable libperfmgr without breaking boot
-TARGET_DISABLES_LIBPERF := true
-
 ## Device identifier
 PRODUCT_DEVICE := sky
 PRODUCT_NAME := lineage_sky
