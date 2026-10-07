@@ -21,6 +21,11 @@ $(call inherit-product, $(DEVICE_PATH)/device.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sky/sky-vendor.mk)
 
+# Device info
+PROCESSOR_INFO := Snapdragon 4 Gen 2
+CAMERA_REAR_INFO := 50,2
+CAMERA_FRONT_INFO := 8
+
 ## Device identifier
 PRODUCT_DEVICE := sky
 PRODUCT_NAME := lineage_sky
