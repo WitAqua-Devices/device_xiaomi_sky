@@ -80,9 +80,17 @@ struct region_info {
     const char* incremental;
 };
 
-// Latest stock release of each regional ROM. All of them are Android 15
-// with the same system build id.
-constexpr const char* kBuildId = "15/AQ3A.240912.001";
+// Latest stock release of each regional ROM. Stock composes its
+// fingerprints from three different partitions, all on the same incremental:
+//
+//   ro.build.fingerprint        <brand>/<name>/<device>:15/AQ3A.240912.001/...  (system)
+//   ro.{vendor,odm,bootimage}.  <brand>/<name>/<device>:14/UKQ1.231003.002/...  (vendor freeze)
+//   ro.vendor_dlkm.             <brand>/<name>/<device>:12/SKQ1.230118.001/...  (launch)
+//
+// and ro.build.description comes from the generic missi system image.
+constexpr const char* kSystemBuild = "15/AQ3A.240912.001";
+constexpr const char* kVendorBuild = "14/UKQ1.231003.002";
+constexpr const char* kVendorDlkmBuild = "12/SKQ1.230118.001";
 
 const region_info kRegions[] = {
     {"CN",     "",        "sky",           "OS2.0.205.0.VMWCNXM"},
@@ -95,8 +103,7 @@ const region_info kRegions[] = {
 // delivered as a Google OTA.
 constexpr const char* kKddiName = "XIG03_jp_kdi";
 constexpr const char* kKddiModDevice = "sky_jp_kd_global";
-constexpr const char* kKddiFingerprint =
-        "Redmi/XIG03_jp_kdi/XIG03:15/AQ3A.240912.001/OS2.0.11.0.VMWJPKD:user/release-keys";
+constexpr const char* kKddiIncremental = "OS2.0.11.0.VMWJPKD";
 
 const board_info* find_board(const std::string& boardid) {
     for (const auto& board : kBoards) {
@@ -154,25 +161,26 @@ void vendor_load_properties() {
     property_override("vendor.usb.product_string", board->marketname);
     property_override("bluetooth.device.default_name", board->marketname);
 
-    std::string name, mod_device, fingerprint;
+    property_override("ro.product.board", board->device);
+    property_override("ro.product.cert", board->model);
+
+    std::string name, mod_device, incremental;
     if (std::string(board->device) == "XIG03") {
         name = kKddiName;
         mod_device = kKddiModDevice;
-        fingerprint = kKddiFingerprint;
+        incremental = kKddiIncremental;
     } else {
         const auto hwc = GetProperty("ro.boot.hwc", "");
         const auto& region = find_region(hwc);
         // Chinese-only boards keep their Chinese name wherever they are.
         if (board->name_cn && (!board->name_base || std::string(region.hwc) == "CN")) {
             name = board->name_cn;
-            mod_device = "sky";
-            fingerprint = std::string(board->brand) + "/" + name + "/" + board->device + ":" +
-                          kBuildId + "/" + kRegions[0].incremental + ":user/release-keys";
+            mod_device = kRegions[0].mod_device;
+            incremental = kRegions[0].incremental;
         } else {
             name = std::string(board->name_base) + region.suffix;
             mod_device = region.mod_device;
-            fingerprint = std::string(board->brand) + "/" + name + "/" + board->device + ":" +
-                          kBuildId + "/" + region.incremental + ":user/release-keys";
+            incremental = region.incremental;
         }
     }
 
@@ -182,7 +190,19 @@ void vendor_load_properties() {
     // Recovery reports the build it is part of.
     if (access("/system/bin/recovery", F_OK) == 0) return;
 
-    set_ro_build_prop("fingerprint", fingerprint);
-    property_override("ro.bootimage.build.fingerprint", fingerprint);
-    property_override("ro.build.description", fingerprint_to_description(fingerprint));
+    const auto fingerprint = [&](const char* build) {
+        return std::string(board->brand) + "/" + name + "/" + board->device + ":" + build + "/" +
+               incremental + ":user/release-keys";
+    };
+    for (const auto& prop : {"ro.build.fingerprint", "ro.product.build.fingerprint",
+                             "ro.system.build.fingerprint", "ro.system_ext.build.fingerprint"}) {
+        property_override(prop, fingerprint(kSystemBuild));
+    }
+    for (const auto& prop : {"ro.vendor.build.fingerprint", "ro.odm.build.fingerprint",
+                             "ro.bootimage.build.fingerprint"}) {
+        property_override(prop, fingerprint(kVendorBuild));
+    }
+    property_override("ro.vendor_dlkm.build.fingerprint", fingerprint(kVendorDlkmBuild));
+    property_override("ro.build.description",
+                      "missi-user 15 AQ3A.240912.001 " + incremental + " release-keys");
 }
