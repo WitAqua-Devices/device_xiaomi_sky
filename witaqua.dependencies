@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
+  },
+  {
+    "repository": "kernel_xiaomi_sm4450",
+    "target_path": "kernel/xiaomi/sm4450"
+  },
+  {
+    "repository": "kernel_xiaomi_sm4450-modules",
+    "target_path": "kernel/xiaomi/sm4450-modules"
+  }
+]
