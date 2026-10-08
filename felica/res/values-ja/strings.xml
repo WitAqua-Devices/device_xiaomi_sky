@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="felica_setting_header">おサイフケータイ</string>
+    <string name="felica_setting_summary">セキュアエレメントが名乗る機種を選びます</string>
+    <string name="felica_model_title">機種</string>
+    <string name="felica_model_failed">機種を変更できませんでした</string>
+    <string name="felica_model_footer">セキュアエレメントはフォーマットされたときの設定にしか応答しないため、ここは実機と一致している必要があります。au 版は基板から判別できますが、SoftBank 版と SIM フリー版は見分けられません。本体背面に印字されている型番がここで選ばれている機種と違う場合は、その型番を選んでください。変更後は再起動が必要です。</string>
+</resources>

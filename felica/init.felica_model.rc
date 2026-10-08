@@ -1,0 +1,33 @@
+#
+# Copyright (C) 2026 The WitAqua Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+# The secure element only answers to the configuration it was formatted
+# against, and the japanese sky ships as three handsets whose sets differ in
+# the model string and in the certificate FeliCa Networks issued for it: XIG03
+# (au), A401XM (SoftBank) and 23076RA4BR (SIM free). One vendor image serves
+# all of them, so each set lives in /vendor/etc/felica_<model> and the one in
+# use is bound over /vendor/etc/felica.
+#
+# libinit already names the handset from the board - S88029EA1 is XIG03,
+# S88029JA1 is 23076RA4BR - so that model is the default. Any other board has
+# no set of its own and keeps what is there; init ignores ENOENT.
+on property:ro.product.model=*
+    mount none /vendor/etc/felica_${ro.product.model} /vendor/etc/felica bind
+
+# Whatever FelicaParts was told to use, bound on top of the above. S88029JA1
+# is also the SoftBank board, and nothing the bootloader hands out tells the
+# two apart, so this is the only way to reach the A401XM set.
+#
+# Lives on system_ext because the property has to be writable by the settings
+# app: /vendor and /odm scripts expand ${} through vendor_init, which cannot
+# read a system property, and a vendor property cannot be set from an app at
+# all. init parses this one itself, so it can read either.
+#
+# Fires when the persistent properties are loaded, which is after the block
+# above. A bind mount is invisible to a file descriptor somebody already holds,
+# which is why the settings screen asks for a reboot.
+on property:persist.felica.model=*
+    mount none /vendor/etc/felica_${persist.felica.model} /vendor/etc/felica bind

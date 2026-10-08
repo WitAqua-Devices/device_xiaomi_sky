@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The WitAqua Project
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Where the sets live. -->
+    <string name="felica_config_dir" translatable="false">/vendor/etc</string>
+
+    <!-- The sets are named after the model number, which is what the back of
+         the handset and the settings "model" field say, but a number alone
+         does not say which channel it was sold through. Spell that out.
+         "<directory suffix>|<what to show>". -->
+    <string-array name="felica_model_labels" translatable="false">
+        <item>XIG03|XIG03 (au)</item>
+        <item>A401XM|A401XM (SoftBank)</item>
+        <item>23076RA4BR|23076RA4BR (SIM free)</item>
+    </string-array>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">FelicaParts</string>
+
+    <string name="felica_setting_header">Osaifu-Keitai</string>
+    <string name="felica_setting_summary">Choose which handset the secure element answers as</string>
+    <string name="felica_model_title">Model</string>
+    <string name="felica_model_failed">Could not change the model</string>
+    <string name="felica_model_footer">The secure element only answers to the configuration it was formatted against, so this has to match the handset. The board tells an au handset from the others, but not a SoftBank one from a SIM free one: if the model printed on the back of the handset differs from the one selected here, pick that one. Reboot after changing it.</string>
+</resources>

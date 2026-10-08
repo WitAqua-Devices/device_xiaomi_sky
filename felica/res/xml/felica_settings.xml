@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The WitAqua Project
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/felica_setting_header">
+
+    <ListPreference
+        app:key="felica_model"
+        app:iconSpaceReserved="false"
+        app:title="@string/felica_model_title"
+        app:dialogTitle="@string/felica_model_title" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="felica_model_footer"
+        android:selectable="false"
+        android:title="@string/felica_model_footer" />
+
+</PreferenceScreen>

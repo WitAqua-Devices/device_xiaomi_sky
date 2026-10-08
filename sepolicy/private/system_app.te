@@ -1,0 +1,3 @@
+# FelicaParts shares the system uid, and the FeliCa configuration it selects is
+# bound by init.felica_model.rc off this property.
+set_prop(system_app, felica_model_prop)

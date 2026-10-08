@@ -184,6 +184,18 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/privapp-permissions-euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-euicc.xml \
     frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_hcesim1ese/android.hardware.telephony.euicc.xml
 
+# FeliCa (Osaifu-Keitai)
+# The element is provisioned per handset and the japanese boards ship as
+# three models, so the configuration is picked per model and bound over the
+# canonical path from init.felica_model.rc. The board names au's handset and
+# libinit's choice for S88029JA1 is the default there, but that board is also
+# SoftBank's, so FelicaParts can move it.
+PRODUCT_PACKAGES += \
+    FelicaParts
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/felica/init.felica_model.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.felica_model.rc
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd

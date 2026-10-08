@@ -683,6 +683,52 @@ vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED|958e4203b729fb9130737d8352ddcc1ad750f6ca
 system_ext/framework/mirilhook.jar|1eef4d279b1180ae5ea4095a20ebd18891a9dae5
 
+# FeliCa (Osaifu-Keitai)
+#
+# common.cfg carries the model string, mfm.cfg a certificate FeliCa Networks
+# issued for that model, and the element only answers to the set it was
+# formatted against. The japanese sky ships as three handsets on one vendor
+# image, so each set is kept under its own name and init.felica_model.rc binds
+# the right one over /vendor/etc/felica. The whole directory is bound, so
+# mfs.cfg has to be in every set even though it does not differ between them.
+# The set left in place is au's; it is only the bind target.
+#
+#   ./extract-files.py -n -s 'FeliCa (Osaifu-Keitai)' <XIG03 OS2.0.11.0.VMWJPKD>
+vendor/etc/felica/common.cfg
+vendor/etc/felica/mfm.cfg
+vendor/etc/felica/mfs.cfg
+
+# FeliCa (XIG03)
+#   ./extract-files.py -n -s 'FeliCa (XIG03)' <XIG03 OS2.0.11.0.VMWJPKD>
+vendor/etc/felica/common.cfg:vendor/etc/felica_XIG03/common.cfg
+vendor/etc/felica/mfm.cfg:vendor/etc/felica_XIG03/mfm.cfg
+vendor/etc/felica/mfs.cfg:vendor/etc/felica_XIG03/mfs.cfg
+
+# FeliCa (A401XM)
+#   ./extract-files.py -n -s 'FeliCa (A401XM)' <A401XM V816.0.1.0.UMWJPSB>
+vendor/etc/felica/common.cfg:vendor/etc/felica_A401XM/common.cfg
+vendor/etc/felica/mfm.cfg:vendor/etc/felica_A401XM/mfm.cfg
+vendor/etc/felica/mfs.cfg:vendor/etc/felica_A401XM/mfs.cfg
+
+# FeliCa (23076RA4BR)
+#   ./extract-files.py -n -s 'FeliCa (23076RA4BR)' <sky_jp_global OS2.0.204.0.VMWJPXM>
+vendor/etc/felica/common.cfg:vendor/etc/felica_23076RA4BR/common.cfg
+vendor/etc/felica/mfm.cfg:vendor/etc/felica_23076RA4BR/mfm.cfg
+vendor/etc/felica/mfs.cfg:vendor/etc/felica_23076RA4BR/mfs.cfg
+
+# FeliCa applications
+#
+# From the XIG03 dump; stock keeps them in mi_ext. They are the same on every
+# model - the model specific part is the cfg above. Everything here is signed
+# with FeliCa Networks' key and has to stay that way: mfm.cfg pins it, the
+# element's access rules check it, and Play only updates over the same key.
+#
+#   ./extract-files.py -n -s 'FeliCa applications' <XIG03 OS2.0.11.0.VMWJPKD>
+product/app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED|bd7f26d91936920ec6272bb347ffee1a3f95422b
+product/app/MobileFeliCaMenuMainApp/MobileFeliCaMenuMainApp.apk;PRESIGNED|db634afc031bc7e8737e3d835244918e4f990fa4
+product/app/MobileFeliCaSettingApp/MobileFeliCaSettingApp.apk;PRESIGNED|78da170044c61020c5afbd2ce558193005046e30
+product/app/MobileFeliCaWebPluginBoot/MobileFeliCaWebPluginBoot.apk;PRESIGNED|8235926ad2c9ff30a52b74fb39a4006c34cbca1d
+
 # ESE powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
 vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
