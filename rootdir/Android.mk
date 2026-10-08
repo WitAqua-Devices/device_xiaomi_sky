@@ -6,6 +6,10 @@
 
 LOCAL_PATH := $(call my-dir)
 
+# Make reads every Android.mk in the tree whatever the product, and other
+# trees define these names inside their own Soong namespaces.
+ifeq ($(TARGET_DEVICE),sky)
+
 # files that live under device/qcom/common/rootdir/etc/
 
 include $(CLEAR_VARS)
@@ -124,3 +128,5 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := etc/ueventd-odm.rc
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ODM)
 include $(BUILD_PREBUILT)
+
+endif
